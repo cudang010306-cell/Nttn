@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Xin lỗi bé iu</title>
+
+<style>
+body {
+  text-align: center;
+  background: pink;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 350px;
+  margin: 50px auto;
+  position: relative;
+}
+
+.cat-img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.buttons {
+  position: relative;
+  height: 150px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+}
+
+.btn--yes {
+  background: #ff4d6d;
+  color: white;
+}
+
+.btn--no {
+  position: absolute;
+  background: #555;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <img class="cat-img"
+    src="https://media.giphy.com/media/SVkhYVCi8fKPKvypi6/giphy.gif">
+
+  <p class="title">
+    Bạn iuu ơi choo mìnhh xinn lỗi nhóooo😭
+  </p>
+
+  <div class="buttons">
+    <button class="btn--yes" onclick="alert('Biết mà 😏 yêu bé')">
+      Em chấp nhận
+    </button>
+
+    <button class="btn--no" id="noBtn">
+      Không bao giờ
+    </button>
+  </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const box = document.querySelector(".buttons");
+
+// danh sách chữ sẽ đổi
+const texts = [
+  "chọn sai rồi😗",
+  "lại sai nữa rồi🫢",
+  "vẫn không đúng😋",
+  "cố chấp thế chọn lại đi🙂‍↕️",
+  "Hứa không vậy nữa 😭",
+  "Chọn lại đi 😏"
+];
+
+let i = 0;
+
+// khi bấm hoặc chạm
+noBtn.addEventListener("click", change);
+noBtn.addEventListener("touchstart", change);
+
+function change() {
+  // đổi chữ
+  noBtn.innerText = texts[i % texts.length];
+  i++;
+
+  // đổi vị trí
+  const maxX = box.clientWidth - noBtn.offsetWidth;
+  const maxY = box.clientHeight - noBtn.offsetHeight;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
